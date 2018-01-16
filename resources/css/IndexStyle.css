@@ -1,0 +1,73 @@
+body {
+    font-family: 'Lato HairLine';
+    background-color: #ECEFF1;
+    font-size: 24px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#btn-div-log{
+    bottom: 15%;
+    left:30%;
+    border-color: #263238;
+    color: #263238;
+    -webkit-transition: border-color 1s, color 1s, bottom 1s;
+    transition: border-color 1s, color 1s, bottom 1s;
+}
+
+#btn-div-log:hover{
+    bottom: 17%;
+    border-color: #455A64;
+    color: #455A64;
+}
+
+#btn-div-reg{
+    bottom: 15%;
+    right:30%;
+    border-color: #263238;
+    color: #263238;
+    -webkit-transition: border-color 1s, color 1s, bottom 1s;
+    transition: border-color 1s, color 1s, bottom 1s;
+}
+
+#btn-div-reg:hover{
+    bottom: 17%;
+    border-color: #455A64;
+    color: #455A64;
+}
+
+#con-btn-span{
+    bottom: 6%;
+    left: 41%;
+}
+
+#title-1{
+    font-family: "Warsaw Gothic Regular";
+    font-size: 128px;
+    color: #455A64;
+    position: absolute;
+    opacity: 0.8;
+    left: -150px;
+    top: 300px;
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
+#title-2{
+    font-family: "Lato Light";
+    font-size: 32px;
+    color: #263238;
+    position: absolute;
+
+    left: 800px;
+    top: 10px;
+}
+#title-3{
+    font-family: "Lato Light";
+    font-size: 32px;
+    color: #263238;
+    position: absolute;
+
+    left: 1200px;
+    top: 10px;
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="resources/css/FontsStyle.css" type="text/css" rel="stylesheet">
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background-color: #ECEFF1;
+        }
+        .top-bar-div{
+            position: absolute;
+            height: 200px;
+            width: 100%;
+            top: -60px;
+            transform:skewY(-2deg);
+            background-color: #263238;
+        }
+        .content-div{
+            position: absolute;
+            height: 75%;
+            width: 90%;
+            top: 200px;
+            left: 5%;
+            /*background-color: #03A9F4;*/
+        }
+
+        th{
+            font-family: "Warsaw Gothic 3d";
+            font-size: 36px;
+            padding: 5px;
+            color: #ECEFF1;
+            background-color: #263238;
+        }
+
+        td{
+            border-bottom: solid 1px black;
+            font-family: "Warsaw Gothic 3d";
+            font-size: 32px;
+            padding: 5px;
+        }
+        #user-div{
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-family: "Warsaw Gothic 3d";
+            font-size: 80px;
+            color: #ECEFF1;
+        }
+
+        #user-name{
+            white-space: nowrap;
+            left: 120px;
+            position: absolute;
+        }
+
+        #user-points{
+
+            left: 540px;
+            position: absolute;
+        }
+
+        #user-avatar{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ECEFF1;
+
+            border-radius: 50%;
+        }
+
+        th:last-of-type{
+            background-color: #ECEFF1;
+        }
+
+        tr td:last-of-type{
+            text-align: center;
+            background-color: #263238;
+            color: #ECEFF1;
+            transition: color 1s;
+
+        }
+        tr td:last-of-type:hover{
+            cursor: pointer;
+            color: #e51c23;
+        }
+
+
+
+
+    </style>
+    <script src="resources/js/jquery/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var user_data;
+            $.ajax({
+                url: "resources/php/test.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    opt: 0
+                }
+            }).done(function (data) {
+                if (data['active']) {
+
+                    user_data = data;
+                    $('#user-name').html(data['login']);
+                    $('#user-points').html(data['points']);
+                }
+            });
+
+            $.ajax({
+                url: "resources/php/RoomsController.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    opt: 0
+                }
+            }).done(function (data) {
+
+                $(data).each(function (i,w) {
+
+                    console.log(w['name']);
+                    text = '<tr>' +
+                        '<td>'+w['id']+'</td>' +
+                        '<td>'+w['name']+'</td>' +
+                        '<td>'+w['type']+'</td>' +
+                        '<td>'+w['current']+'/'+w['max']+'</td>' +
+                        '<td>0</td>' +
+                        '<td>0</td>' +
+                        '<td class="go-btn" id="'+w['id']+'"> wejdź </td>' +
+                        '</tr>';
+                    $("#table").append(text);
+                })
+                trigger1();
+            });
+
+
+            function trigger1() {
+                $( ".go-btn" ).click(function() {
+
+                    $.ajax({
+                        url: "resources/php/RoomsController.php",
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            opt: 1,
+                            room: $(this).attr('id')
+                        }
+                    }).done(function (data) {
+                        if (data['active']) {
+                            console.log(data);
+                            window.location.replace("room_for_six.html");
+//                            user_data = data;
+//                            $('#user-name').html(data['login']);
+//                            $('#user-points').html(data['points']);
+                        }
+                    });
+
+                });
+            }
+
+
+            /*$('#user-name').html(user_data['login']);
+            $('#user-points').html(user_data['points']);*/
+
+
+        });
+
+        function trigger() {
+            console.log("test");
+            $( ".go-btn" ).click(function() {
+                //alert( $(this).attr('id'));
+
+                $.ajax({
+                    url: "resources/php/RoomsController.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        opt: 1,
+                        room: $(this).attr('id')
+                    }
+                }).done(function (data) {
+                    console.log(data);
+                });
+
+            });
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="top-bar-div">
+
+    </div>
+    
+    <div id="user-div">
+        <div id="user-avatar"> </div>
+        <div id="user-name">Leeroy Jenkins</div>
+        <div id="user-points">1550</div>
+    </div>
+
+    <div class="content-div">
+        <table id="table" style="width:100%">
+            <tr>
+                <th>#</th>
+                <th>NAZWA</th>
+                <th>TYP</th>
+                <th>GRACZY</th>
+                <th>STAWKI</th>
+                <th>PULA</th>
+                <th> &nbsp; </th>
+
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+</html>

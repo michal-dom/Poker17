@@ -1,0 +1,85 @@
+body{
+    font-family: "Lato Hairline";
+    margin: 0;
+    overflow: hidden;
+    background: #f6f6f6;
+    color: #000000;
+
+}
+
+
+.player-avatar-div{
+    border: 1px solid black;
+
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: rgb(203, 203, 203);
+    transition: width 2s;
+}
+
+.player-avatar-div:hover{
+    width: 80px;
+    cursor: pointer;
+}
+
+
+
+.player-info-div{
+    position: absolute;
+
+}
+
+
+
+
+#table-div{
+    width: 50%;
+    height: 40%;
+    border: 2px solid #004000;
+    position: absolute;
+    left: 25%;
+    top:30%;
+    /*background-color: #00aa0022;*/
+    border-radius: 100px;
+}
+
+.card-div{
+    width: 12%;
+    height: 40%;
+    position: absolute;
+    top:20%;
+    border: 1px solid black;
+}
+
+#card-div-1{
+    left:15%;
+}
+
+#card-div-2{
+    left:30%;
+    top:15%;
+}
+#card-div-3{
+    left:45%;
+    top:10%;
+}
+
+#card-div-4{
+    left:60%;
+    top:15%;
+}
+#card-div-5{
+    left:75%;
+}
+
+#canvas{
+    height: 100%;
+    width:100%;
+z-index: -1;
+}
+
+
+
+

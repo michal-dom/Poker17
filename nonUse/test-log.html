@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projekt'17|Poker|Start</title>
+    <link type="text/css" rel="stylesheet" href="../resources/css/FontsStyle.css">
+    <link type="text/css" rel="stylesheet" href="../resources/css/FormStyle.css">
+    <link type="text/css" rel="stylesheet" href="../resources/css/LogSignStyle.css">
+
+    <script src="../resources/js/jquery/jquery-3.2.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#content-div-log").hide();
+            $("#content-div-reg").hide();
+            $("#content-div-log").fadeIn();
+
+            $("#close-btn-span-1").click(function () {
+                $("#content-div-log").fadeOut();
+                $("#content-div-reg").fadeIn();
+            })
+
+            $("#close-btn-span-2").click(function () {
+                $("#content-div-reg").fadeOut();
+            })
+
+            $(".btn-span").hover(function () {
+                for (i = 1; i < 8; i++) {
+                    r = Math.floor((Math.random() * 60) - 30);
+                    $('.span-lett-' + i).animate({
+                        top: r + 'px'
+                    });
+                }
+            }, function () {
+                for (i = 1; i < 8; i++) {
+                    $('.span-lett-' + i).animate({
+                        top: '10%'
+                    });
+                }
+            });
+        })
+
+    </script>
+
+</head>
+<body>
+
+
+
+<div class="content-div" id="content-div-log">
+
+    <div class="left-div">
+
+    </div>
+    <div class="label-div" style="left: 20%;">
+        log-in
+    </div>
+    <div class="right-div">
+
+        <input id="login-log" placeholder="login" type="text" class="input"><br />
+        <input id="password" placeholder="password" type="password" class="input">
+
+        <div class="btn-div" id="btn-div-ok-log">
+            OK
+        </div>
+    </div>
+
+
+
+    <b>
+        <div id="close-btn-span-1" class="btn-span">
+            <span class="span-lett-0" style="left: 5%">-</span>
+            <span class="span-lett-1" style="left: 15%">z</span>
+            <span class="span-lett-2" style="left: 25%">a</span>
+            <span class="span-lett-3" style="left: 35%">m</span>
+            <span class="span-lett-4" style="left: 45%">k</span>
+            <span class="span-lett-5" style="left: 55%">n</span>
+            <span class="span-lett-6" style="left: 65%">i</span>
+            <span class="span-lett-7" style="left: 75%">j</span>
+            <span class="span-lett-8" style="left: 85%">-</span>
+        </div>
+    </b>
+</div>
+
+
+<div class="content-div" id="content-div-reg">
+
+    <div class="left-div">
+
+    </div>
+    <div class="label-div" style="left: 15%;">
+        sign-in
+    </div>
+    <div class="right-div">
+
+        <input id="login-reg" placeholder="login" type="text" class="input"><br />
+        <input id="mail-reg" placeholder="m@il" type="text" class="input"><br />
+        <input id="password-reg" placeholder="hasło" type="password" class="input"><br />
+        <input id="password-acc-reg" placeholder="powtórz hasło" type="password" class="input"><br />
+
+
+        <div class="btn-div" id="btn-div-ok-reg" >
+            OK
+        </div>
+    </div>
+
+
+
+    <div id="close-btn-span-2" class="btn-span">
+        <span class="span-lett-0" style="left: 5%">-</span>
+        <span class="span-lett-1" style="left: 15%">z</span>
+        <span class="span-lett-2" style="left: 25%">a</span>
+        <span class="span-lett-3" style="left: 35%">m</span>
+        <span class="span-lett-4" style="left: 45%">k</span>
+        <span class="span-lett-5" style="left: 55%">n</span>
+        <span class="span-lett-6" style="left: 65%">i</span>
+        <span class="span-lett-7" style="left: 75%">j</span>
+        <span class="span-lett-8" style="left: 85%">-</span>
+    </div>
+</div>
+
+
+
+<!--div id="test"></div-->
+</body>
+</html>

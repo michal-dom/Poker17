@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Warsaw Gothic Obl";
+    src: url('../fonts/WarsawGothic3DObl.woff'), url('../fonts/WarsawGothic3DObl.woff') format('woff');
+}
+
+@font-face {
+    font-family: "Warsaw Gothic 3d";
+    src: url('../fonts/WarsawGothic3D.WOFF'), url('../fonts/WarsawGothic3D.WOFF') format('woff');
+}
+
+
+@font-face {
+    font-family: "Warsaw Gothic Regular";
+    src: url('../fonts/WarsawGothic.WOFF'), url('../fonts/WarsawGothic.WOFF') format('woff');
+}
+/*Lato*/
+
+@font-face {
+    font-family: "Lato HairLine";
+    src: url('../fonts/Lato-Hairline.WOFF'), url('../fonts/Lato-Hairline.WOFF') format('woff');
+}
+
+@font-face {
+    font-family: "Lato Light";
+    src: url('../fonts/Lato-Light.WOFF'), url('../fonts/Lato-Light.WOFF') format('woff');
+}
+
+@font-face {
+    font-family: "Lato Regular";
+    src: url('../fonts/Lato-Regular.WOFF'), url('../fonts/Lato-Regular.WOFF') format('woff');
+}
+

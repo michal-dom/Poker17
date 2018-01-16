@@ -1,0 +1,87 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+}
+.content-div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #263238;
+}
+.left-div{
+    background-color: #ECEFF1;
+    width: 100%;
+    height: 100%;
+    left:-35%;
+    position: absolute;
+    transform:skewX(-10deg);
+
+}
+
+.label-div{
+    font-family: "Warsaw Gothic Obl";
+    font-size: 300px;
+    position: absolute;
+    color: #263238;
+    top:20%;
+}
+
+.right-div{
+    position: absolute;
+    /*top: ;*/
+    width: 35%;
+    height: 100%;
+    right: 0;
+    text-align: center;
+}
+
+
+#login-log{
+    margin-top: 40%;
+}
+
+#login-reg{
+    margin-top: 35%;
+}
+
+#btn-div-ok-log{
+    top: 55%;
+    left:40%;
+    -webkit-transition: top 1s;
+    transition: top 1s;
+}
+
+#btn-div-ok-log:hover{
+    top: 53%;
+}
+
+#btn-div-ok-reg{
+    top: 65%;
+    left:40%;
+    -webkit-transition: top 1s;
+    transition: top 1s;
+}
+
+#btn-div-ok-reg:hover{
+    top: 63%;
+}
+.btn-span{
+    bottom: 5%;
+    left: 41%;
+
+}
+
+#test{
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    left: 50%;
+
+}
+
+#content-div-log{
+    /*visibility: hidden;*/
+}

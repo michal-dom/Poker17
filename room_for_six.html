@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="resources/css/FontsStyle.css" type="text/css" rel="stylesheet">
+    <link href="resources/css/FormStyle.css" type="text/css" rel="stylesheet">
+
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+        .player-avatar{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: solid 1px #263238;
+        }
+
+        #player-avatar-8{
+            border-color: #03a9f4;
+        }
+        #line{
+            height: 1px;
+            background-color: black;
+            width: 100%;
+            top: 78%;
+            position: absolute;
+        }
+        #panel-left{
+            bottom: -100px;
+            left: -120px;
+            height: 40%;
+            width: 35%;
+            transform: skewY(20deg) rotate(-30deg);
+        }
+
+        #panel-right{
+            bottom: -100px;
+            right: -120px;
+            height: 450px;
+            width: 550px;
+            transform: skewY(-30deg) rotate(10deg);
+        }
+
+        #top-bar{
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            transform: skewY(-1deg);
+        }
+
+        .panel{
+            background-color: #263238;
+            position: absolute;
+        }
+
+        #table-div{
+            background-color: #263238;
+            position: absolute;
+            top: 30%;
+            left: 27.5%;
+            width: 45%;
+            height: 40%;
+            border-radius: 250px;
+        }
+        #top-info{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        #table-name{
+            font-family: "Warsaw Gothic 3d";
+            font-size: 64px;
+            color: #ECEFF1;
+        }
+
+        #user-name{
+            font-family: "Warsaw Gothic 3d";
+            font-size: 44px;
+            color: #ECEFF1;
+            transform: rotate(-12deg);
+        }
+        #user-points{
+            font-family: "Warsaw Gothic 3d";
+            font-size: 44px;
+            color: #ECEFF1;
+            transform: rotate(-12deg);
+            margin-left:40px;
+            /*margin-top: 10px;*/
+            /*position: absolute;*/
+        }
+
+        #user-info-left{
+            position: absolute;
+            top: 70%;
+            left:20px;
+        }
+
+
+        #card-1{
+            bottom: -80px;
+            left: 80px;
+
+        }
+
+        #card-2{
+            bottom: -60px;
+            left: 200px;
+
+
+        }
+
+        .card{
+            position: absolute;
+            border: solid 1px #182229;
+            /*background-color: #263238;*/
+            background: linear-gradient(to bottom right, #37474F, #263238);
+            transform: rotate(-12deg);
+            width: 160px;
+            height:200px;
+            border-radius: 20px;
+        }
+
+        .card span{
+            position: absolute;
+            left:15px;
+            top:5px;
+            font-family: "Lato Light";
+            font-size: 35px;
+        }
+
+        .card-logo{
+            position: absolute;
+            left:10px;
+            top:50px;
+            width:24px;
+        }
+        .card-logo-big{
+            position: absolute;
+            width: 64px;
+            top: 100px;
+            left: 60px;
+        }
+
+        .table-card{
+            position: absolute;
+            top:25%;
+            width: 16%;
+            height:50%;
+            border: solid 1px #182229;
+            border-radius: 16px;
+        }
+
+        #player-avatar-1{
+            border-color: rgba(255, 255, 0, 1);
+            //box-shadow: 0 4px 8px 0 rgba(255, 255, 0, 0.2), 0 6px 20px 0 rgba(255, 255, 0, 0.19);
+        }
+
+        #flop-1{
+            left:6%
+        }
+
+        #flop-2{
+            top:15%;
+            left:24%
+        }
+
+        #flop-3{
+            top:5%;
+            left:42%
+        }
+
+        #turn-1{
+            top:15%;
+            left:60%
+        }
+
+        #river-1{
+            left:78%
+        }
+
+        #card-2-txt{
+            color: #e51c23;
+        }
+
+        #user-stock{
+            font-family: "Warsaw Gothic 3d";
+            font-size: 44px;
+            margin-left: 25px;
+            color: #ECEFF1;
+        }
+
+        #user-info-right{
+            position: absolute;
+            top: 74%;
+            right:0px;
+            width: 400px;
+        }
+
+        #user-riser{
+            position: absolute;
+            width: 100%;
+
+            height:100px;
+            display: inline;
+        }
+
+        #user-riser .btn-div{
+            position: absolute;
+            top: 10px;
+            width: 60px;
+        }
+
+        #user-riser input{
+            position: absolute;
+            top: 20px;
+            left:160px;
+            width: 80px;
+            height: 50px;
+            font-size: 30px;
+            border: none;
+            border-bottom: solid 1px #ECEFF1;
+            color: #ECEFF1;
+            font-family: 'Lato Light';
+            background-color: #263238;
+        }
+
+        #user-riser div:first-of-type{
+            left: 20px;
+        }
+        #user-riser div:last-of-type{
+            right: 20px;
+        }
+
+
+
+    </style>
+
+    <script src="resources/js/jquery/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var w = window.innerWidth,
+                h = window.innerHeight;
+            var coordinates = [
+                [(w*0.2)-50, (h*0.5)-50],
+                [(w*0.32)-50, (h*0.2)-50],
+                [(w*0.5)-50, (h*0.2)-50],
+                [(w*0.68)-50, (h*0.2)-50],
+                [(w*0.8)-50, (h*0.5)-50],
+                [(w*0.68)-50, (h*0.8)-50],
+                [(w*0.5)-50, (h*0.8)-50],
+                [(w*0.32)-50, (h*0.8)-50]
+            ];
+
+            console.log(w+" "+h);
+
+            for(i = 1; i < 9; i++){
+                $("#player-avatar-"+i).css({
+                    "left": (coordinates[i-1][0]+Math.random()*20-10)+"px",
+                    "top": (coordinates[i-1][1]+Math.random()*20-10)+"px"
+                })
+            }
+//            alert('test');
+            $.ajax({
+                url: "resources/php/GameController.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    opt: 0
+                }
+            }).done(function (data) {
+//                alert('test');
+                console.log(data);
+                $(data).each(function (k,v) {
+                    console.log(k['id'] + " " + v);
+                })
+
+            });
+
+
+        })
+    </script>
+
+</head>
+<body>
+
+    <div class="player-avatar" id="player-avatar-1" >
+    </div>
+    <div class="player-avatar" id="player-avatar-2" >
+    </div>
+    <div class="player-avatar" id="player-avatar-3" >
+    </div>
+    <div class="player-avatar" id="player-avatar-4" >
+    </div>
+    <div class="player-avatar" id="player-avatar-5" >
+    </div>
+    <div class="player-avatar" id="player-avatar-6" >
+    </div>
+    <div class="player-avatar" id="player-avatar-7" >
+    </div>
+    <div class="player-avatar" id="player-avatar-8" >
+    </div>
+
+    <div id="table-div">
+        <div class="table-card" id="flop-1">
+
+        </div>
+        <div class="table-card" id="flop-2"></div>
+        <div class="table-card" id="flop-3"></div>
+        <div class="table-card" id="turn-1"></div>
+        <div class="table-card" id="river-1"></div>
+    </div>
+
+    <div id="top-bar" class="panel">
+
+    </div>
+
+    <div id="top-info">
+        <div id="table-name">
+            Dallas
+        </div>
+
+    </div>
+
+    <div id="panel-left" class="panel">
+
+    </div>
+
+    <div id="user-info-left">
+        <div id="user-name">Leeroy Jenkins</div>
+        <div id="user-points">$ 1 550</div>
+
+
+    </div>
+    <div id="user-cards">
+        <div id="card-1" class="card">
+            <span id="card-1-txt"><b>K</b></span>
+            <img src="resources/images/pik2.png" id="card-1-logo" class="card-logo"  >
+            <img src="resources/images/pik1.png" id="card-1-logo-big" class="card-logo-big">
+        </div>
+        <div id="card-2" class="card">
+            <span id="card-2-txt"><b>5</b></span>
+            <img src="resources/images/kier2.png" id="card-2-logo" class="card-logo">
+            <img src="resources/images/kier1.png" id="card-2-logo-big" class="card-logo-big">
+        </div>
+
+    </div>
+
+
+
+    <div id="panel-right" class="panel">
+
+    </div>
+
+    <div id="user-info-right">
+        <div id="user-stock">stock gracza: <b>$ 550</b> </div>
+        <div id="user-riser">
+            <div class="btn-div">+ </div>
+            <input placeholder="0">
+            <div class="btn-div">- </div>
+        </div>
+    </div>
+<!--div id="line">
+
+</div-->
+
+</body>
+</html>
